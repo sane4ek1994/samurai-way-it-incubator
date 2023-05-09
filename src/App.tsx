@@ -1,4 +1,6 @@
 import React from 'react'
+import { Header } from './Header'
+
 import './App.css'
 
 function App() {
@@ -7,16 +9,6 @@ function App() {
       <Header />
       Hello, samurai! Let's go!
       <h1>Go!</h1>
-    </div>
-  )
-}
-
-const Header = () => {
-  return (
-    <div>
-      <a href='#'>Home</a>
-      <a href='#'>News</a>
-      <a href='#'>Message</a>
     </div>
   )
 }
