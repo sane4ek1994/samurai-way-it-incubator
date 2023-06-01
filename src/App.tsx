@@ -1,18 +1,22 @@
 import React from 'react'
-import {Header} from './Header'
 
 import './App.css'
+import {Header} from "./components/Header";
+import {Navbar} from "./components/Navbar";
+import {Profile} from "./components/Profile";
 
 class App extends React.Component {
     render() {
         return (
-            <div className='App'>
+            <div className='app-wrapper'>
                 <Header/>
-                Hello, samurai! Let's go!
-                <h1>Go!</h1>
+                <Navbar/>
+                <Profile/>
             </div>
         )
     }
 }
 
 export default App
+
+
