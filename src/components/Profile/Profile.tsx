@@ -1,15 +1,20 @@
 import React from 'react';
 import {S} from './Profile_styles'
+import {TextField} from "@mui/material";
+import {Post} from "./Post/Post";
 
 export class Profile extends React.Component {
     render() {
         return (
-            <S.Content className='content'>Main content
-                <div>
-                    <img
-                        src="https://media.istockphoto.com/id/976370312/photo/content-marketing-content-data-blogging-media-publication-information-vision-concept.jpg?s=612x612&w=0&k=20&c=93V95QsK40hmisFJuCj35GNLJKwB6Z4uuQ7ttLiVbHA="
-                        alt="content"/>
-                </div>
+            <S.Content className='content'>
+                <TextField id="standard-basic" label="New post" variant="standard" />
+                <ul>
+                    <li> <Post message='Hello!'/></li>
+                    <li> <Post message='Hello!'/></li>
+                    <li> <Post message='QQ!'/></li>
+                    <li> <Post message='How are you?'/></li>
+                </ul>
+
             </S.Content>
         );
     }

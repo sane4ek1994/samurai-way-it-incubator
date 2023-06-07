@@ -1,7 +1,7 @@
 import React from 'react'
-import {Header} from "./components/Header/Header";
-import {Navbar} from "./components/Navbar/Navbar";
-import {Profile} from "./components/Profile/Profile";
+import {Header} from "../Header/Header";
+import {Navbar} from "../Navbar/Navbar";
+import {Profile} from "../Profile/Profile";
 
 import {S} from './App_styles'
 
