@@ -1,21 +1,21 @@
 import React from 'react';
-import {S} from './Profile_styles'
 import {TextField} from "@mui/material";
 import {Post} from "./Post/Post";
 
 export class Profile extends React.Component {
     render() {
+
         return (
-            <S.Content className='content'>
+            <>
                 <TextField id="standard-basic" label="New post" variant="standard" />
                 <ul>
-                    <li> <Post message='Hello!'/></li>
-                    <li> <Post message='Hello!'/></li>
-                    <li> <Post message='QQ!'/></li>
-                    <li> <Post message='How are you?'/></li>
+                    <li> <Post message='Hello!' likeCount={0}/></li>
+                    <li> <Post message='Hello!' likeCount={2}/></li>
+                    <li> <Post message='QQ!' likeCount={100}/></li>
+                    <li> <Post message='How are you?' likeCount={0}/></li>
                 </ul>
 
-            </S.Content>
+            </>
         );
     }
 }

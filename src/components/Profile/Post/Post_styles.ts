@@ -15,7 +15,22 @@ const PostAvatar = styled.div`
   border-radius: 20px;
 `
 
+const Message = styled.div`
+  margin-right: 10px;
+  border-radius: 20px;
+`
+const WrapperBtns =  styled.div`
+  span {
+    margin-left: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+ 
+`
+
 export const S = {
     PostWrapper,
-    PostAvatar
+    PostAvatar,
+    Message,
+    WrapperBtns
 }

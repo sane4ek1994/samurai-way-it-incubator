@@ -7,15 +7,22 @@ import {S} from './Post_styles';
 
 type TPost = {
     message: string
+    likeCount: number
 }
 
-export class Post extends React.Component<TPost> {
+export class Post extends React.Component<TPost, TPost> {
     constructor(props: TPost) {
         super(props);
-        this.state = { message: props.message };
+        this.state = { message: props.message,likeCount: props.likeCount } ;
+        this.handleLikeClick = this.handleLikeClick.bind(this);
     }
+
+    handleLikeClick() {
+        this.setState(prevState => ({...prevState, likeCount: prevState.likeCount + 1}))
+    }
+
     render() {
-        const {message} = this.props
+        const {message, likeCount} = this.state
 
         return (
            <>
@@ -23,11 +30,14 @@ export class Post extends React.Component<TPost> {
                    <S.PostAvatar>
                        <PersonOutlineTwoToneIcon fontSize="large"/>
                    </S.PostAvatar>
-                   <div>{message}</div>
+                   <S.Message>{message}</S.Message>
                </S.PostWrapper>
-               <IconButton color="primary" aria-label="like">
-                   <ThumbUpOffAltTwoToneIcon />
-               </IconButton>
+              <S.WrapperBtns>
+                  <IconButton onClick={this.handleLikeClick} color="primary" aria-label="like">
+                      <ThumbUpOffAltTwoToneIcon fontSize='small' />
+                      <span>{likeCount}</span>
+                  </IconButton>
+              </S.WrapperBtns>
            </>
         );
     }

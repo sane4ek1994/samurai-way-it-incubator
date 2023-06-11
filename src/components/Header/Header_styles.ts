@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 const Header = styled.header`
+  height: 100px;
   padding: 0 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   grid-area: header;
   background-color: cornflowerblue;
+  border-radius: 8px;
     `
 const LogoType = styled.img`
   display: block;

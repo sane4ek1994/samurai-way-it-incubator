@@ -10,6 +10,13 @@ const AppWrapper = styled.div`
             'nav content ';
   grid-template-rows: 2fr 10fr;
   grid-template-columns: 1fr 5fr;
+  gap: 5px;
 `
 
-export const S = {AppWrapper}
+const Content = styled.div`
+  padding:  0 5px;
+  grid-area: content;
+  background-color: aliceblue;
+`
+
+export const S = {AppWrapper, Content}
