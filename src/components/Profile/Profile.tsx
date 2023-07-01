@@ -1,18 +1,25 @@
 import React from 'react';
 import {TextField} from "@mui/material";
-import {Post} from "./Post/Post";
+import {Post} from "../Post/Post";
+import {ProfileInfo} from "./ProfileInfo";
+import {TPostData} from "../App/App";
 
-export class Profile extends React.Component {
+
+export class Profile extends React.Component<TPostData> {
     render() {
-
+        const {postData} = this.props
         return (
             <>
-                <TextField id="standard-basic" label="New post" variant="standard" />
+                <ProfileInfo/>
+                <TextField id="standard-basic" label="New post" variant="standard"/>
                 <ul>
-                    <li> <Post message='Hello!' likeCount={0}/></li>
-                    <li> <Post message='Hello!' likeCount={2}/></li>
-                    <li> <Post message='QQ!' likeCount={100}/></li>
-                    <li> <Post message='How are you?' likeCount={0}/></li>
+                    {postData.map(post =>
+                        <li key={post.id}>
+                            <Post
+                                id={post.id}
+                                message={post.message}
+                                likeCount={post.likeCount}/>
+                        </li>)}
                 </ul>
 
             </>

@@ -1,19 +1,22 @@
 import React, {Component} from 'react';
 import {S} from './Dialog_styles'
-export  class Dialogs extends Component {
- render() {
+import {DialogItem} from "./DialogItem/DialogItem";
+import {Message} from "./Message/Message";
+import {TDialogData, TMessageData} from "../App/App";
+
+type TDialogs = TDialogData & TMessageData
+
+export class Dialogs extends Component<TDialogs> {
+
+    render() {
+        const {dialogData, messageData} = this.props
         return (
             <S.Dialogs>
                 <div className="dialogs-items">
-                    <div className="dialog">Alex</div>
-                    <div className="dialog">Ksu</div>
-                    <div className="dialog">Lev</div>
-                    <div className="dialog">Alex</div>
+                    {dialogData.map(dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>)}
                 </div>
                 <div className="messages">
-                    <div className="message">Hello!</div>
-                    <div className="message">QQ!</div>
-                    <div className="message">How are you?</div>
+                    {messageData.map(message => <Message key={message.id} message={message.message}/>)}
                 </div>
             </S.Dialogs>
         );

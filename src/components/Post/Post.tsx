@@ -6,6 +6,7 @@ import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone';
 import {S} from './Post_styles';
 
 type TPost = {
+    id: string
     message: string
     likeCount: number
 }
@@ -13,7 +14,7 @@ type TPost = {
 export class Post extends React.Component<TPost, TPost> {
     constructor(props: TPost) {
         super(props);
-        this.state = { message: props.message,likeCount: props.likeCount } ;
+        this.state = {id: props.id, message: props.message, likeCount: props.likeCount};
         this.handleLikeClick = this.handleLikeClick.bind(this);
     }
 
@@ -25,20 +26,20 @@ export class Post extends React.Component<TPost, TPost> {
         const {message, likeCount} = this.state
 
         return (
-           <>
-               <S.PostWrapper>
-                   <S.PostAvatar>
-                       <PersonOutlineTwoToneIcon fontSize="large"/>
-                   </S.PostAvatar>
-                   <S.Message>{message}</S.Message>
-               </S.PostWrapper>
-              <S.WrapperBtns>
-                  <IconButton onClick={this.handleLikeClick} color="primary" aria-label="like">
-                      <ThumbUpOffAltTwoToneIcon fontSize='small' />
-                      <span>{likeCount}</span>
-                  </IconButton>
-              </S.WrapperBtns>
-           </>
+            <>
+                <S.PostWrapper>
+                    <S.PostAvatar>
+                        <PersonOutlineTwoToneIcon fontSize="large"/>
+                    </S.PostAvatar>
+                    <S.Message>{message}</S.Message>
+                </S.PostWrapper>
+                <S.WrapperBtns>
+                    <IconButton onClick={this.handleLikeClick} color="primary" aria-label="like">
+                        <ThumbUpOffAltTwoToneIcon fontSize='small'/>
+                        <span>{likeCount}</span>
+                    </IconButton>
+                </S.WrapperBtns>
+            </>
         );
     }
 }
