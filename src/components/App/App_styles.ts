@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 
 const AppWrapper = styled.div`
-
-  width: 100%;
+  width: 65%;
+  margin: 0 auto;
+  padding: 5px;
   display: grid;
   grid-template-areas:
             'header header'
