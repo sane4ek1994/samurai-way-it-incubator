@@ -12,7 +12,7 @@ export class Message extends Component<TMessage, TMessage> {
 
     render() {
         return (
-            <div className="message">{this.props.message}</div>
+                <div className="message">{this.props.message}</div>
         )
 
     }
