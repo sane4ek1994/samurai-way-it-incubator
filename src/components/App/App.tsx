@@ -8,47 +8,29 @@ import {S} from './App_styles'
 import {Route} from "react-router-dom";
 import {Music} from "../Music/Music";
 import {Settings} from "../Settings/Settings";
+import { TState} from "../../redux/state";
 
-type TPostDataElement = {
-    id: string
-    message: string
-    likeCount: number
+
+type TAppProps = {
+    addPost: (postText: string) => void
+    changePostText: (postText: string) => void
 }
 
-type TDialogItem = {
-    id: string
-    name: string
-}
+type TApp = TState & TAppProps
 
-type TMessageItem = {
-    id: string
-    message: string
-}
-
-export type TDialogData = {
-    dialogData: TDialogItem[]
-}
-
-export type TMessageData = {
-    messageData: TMessageItem[]
-}
-
-export type TPostData = {
-    postData: TPostDataElement[]
-}
-
-type TProps = TPostData & TDialogData & TMessageData
-
-class App extends React.Component<TProps> {
+class App extends React.Component<TApp> {
     render() {
-        const {postData, messageData, dialogData} = this.props
+        const {postData, postTitle} = this.props.profilePage
+        const {messageData, dialogsData} = this.props.dialogsPage
+        const {addPost, changePostText} = this.props
         return (
             <S.AppWrapper>
                 <Header/>
                 <Navbar/>
                 <S.Content>
-                    <Route path='/profile' render={() => <Profile postData={postData}/>}/>
-                    <Route path='/messages' render={() => <Dialogs dialogData={dialogData} messageData={messageData} />}/>
+                    <Route path='/profile' render={() => <Profile postTitle={postTitle} changePostText={changePostText} addPost={addPost} postData={postData}/>}/>
+                    <Route path='/messages'
+                           render={() => <Dialogs dialogsData={dialogsData} messageData={messageData}/>}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
                 </S.Content>
