@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import {TextField} from "@mui/material";
+import {CreatedNewPostBlock} from './Profile_styles';
 import {Post} from "../Post/Post";
 import {ProfileInfo} from "./ProfileInfo";
 import {TPostDataItem} from "../../redux/state";
@@ -22,8 +23,8 @@ export class Profile extends React.Component<IPostData> {
         }
     }
 
-     onChangePostText = (e: ChangeEvent<HTMLInputElement>) => {
-         this.props.changePostText(e.currentTarget.value)
+    onChangePostText = (e: ChangeEvent<HTMLInputElement>) => {
+        this.props.changePostText(e.currentTarget.value)
     }
 
     render() {
@@ -33,10 +34,11 @@ export class Profile extends React.Component<IPostData> {
         return (
             <>
                 <ProfileInfo/>
-                <div>
-                    <TextField id="standard-basic" label="New post" value={postTitle} onChange={this.onChangePostText} variant="standard" inputRef={this.newPostElement}/>
+                <CreatedNewPostBlock>
+                    <TextField id="standard-basic" label="New post" value={postTitle} onChange={this.onChangePostText}
+                               variant="standard" inputRef={this.newPostElement}/>
                     <button onClick={this.onAddPost}>Add post</button>
-                </div>
+                </CreatedNewPostBlock>
                 <ul>
                     {postData.map(post =>
                         <li key={post.id}>
