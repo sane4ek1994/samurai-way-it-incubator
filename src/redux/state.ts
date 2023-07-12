@@ -1,4 +1,7 @@
-import {rerenderThree} from "../render";
+let rerenderThree = (state: TState) => {
+    console.log('State changed')
+}
+
 
 export type TPostDataItem = {
     id: string
@@ -53,7 +56,7 @@ export const state: TState = {
 }
 
 export const addPost = (message: string) => {
-    state.profilePage.postData.push({id: `${Date.now()}`, message, likeCount: 0})
+    state.profilePage.postData.unshift({id: `${Date.now()}`, message, likeCount: 0})
     state.profilePage.postTitle = ''
     rerenderThree(state)
 }
@@ -62,5 +65,10 @@ export const changePostText = (text: string) => {
     state.profilePage.postTitle = text
     rerenderThree(state)
 }
+
+export const subscribe = (observer: any) => {
+    rerenderThree = observer
+}
+
 
 

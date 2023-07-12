@@ -15,7 +15,6 @@ type TAppProps = {
     addPost: (postText: string) => void
     changePostText: (postText: string) => void
 }
-
 type TApp = TState & TAppProps
 
 class App extends React.Component<TApp> {
@@ -38,9 +37,4 @@ class App extends React.Component<TApp> {
         )
     }
 }
-
 export default App
-
-
-
-
